@@ -1,0 +1,50 @@
+@import "../LoginPage/LoginPage.scss";
+
+.signupcontents {
+    width: 800px;
+    height: 500px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 5px;
+    
+    img {
+        width: 400px;
+        margin-left: 50px;
+        padding: 10px;
+    }
+    form {
+        fieldset{
+            float: right;
+            display: flex;
+            position: relative;
+            bottom: 480px;
+            right: 70px;
+            legend {
+                text-align: center;
+                font-weight: bold;
+                font-size: 30px;
+            }
+            label {
+                font-size: 20px;
+                padding-top: 5px;
+            }
+            .text {
+                width: 250px;
+                height: 40px;
+                margin-top: 10px;
+            }
+            .button {
+                border-radius: 5px;
+                margin: auto;
+                margin-top:15px;
+                &:hover {
+                    background-color: #A6A6A6;
+                }
+
+            }
+        }
+    }
+}

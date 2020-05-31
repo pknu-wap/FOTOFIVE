@@ -8,11 +8,12 @@ import {
 } from "react-router-dom";
 import MainPage from './components/views/MainPage/MainPage'
 import LoginPage from './components/views/LoginPage/LoginPage'
+import RegisterPage from './components/views/RegisterPage/RegisterPage'
 
 function App() {
   return (
     <Router>
-    <div>
+    <div id="background">
       {/*
         A <Switch> looks through all its children <Route>
         elements and renders the first one whose path
@@ -24,6 +25,8 @@ function App() {
         <Route exact path="/" component={MainPage} />
 
         <Route exact path="/login" component={LoginPage} />
+
+        <Route exact path="/register" component={RegisterPage} />
         
       </Switch>
     </div>
