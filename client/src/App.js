@@ -9,6 +9,7 @@ import {
 import MainPage from './components/views/MainPage/MainPage'
 import LoginPage from './components/views/LoginPage/LoginPage'
 import RegisterPage from './components/views/RegisterPage/RegisterPage'
+import PhotoUploadPage from './components/views/PhotoUploadPage/PhotoUploadPage'
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
         <Route exact path="/login" component={LoginPage} />
 
         <Route exact path="/register" component={RegisterPage} />
+
+        <Route exact path="/upload" component={PhotoUploadPage} />
+
         
       </Switch>
     </div>
