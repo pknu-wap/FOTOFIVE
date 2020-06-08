@@ -3,9 +3,11 @@ div {
     height: 100%;
 }
 
+
+
 #header {
     width: 100%;
-    height: 120px;
+    height: 75px;
     background-color: #20273A;
 
     .title {
@@ -13,12 +15,55 @@ div {
             text-decoration: none;
         }
     }
+
+    .menubar {
+        input {
+            position: absolute;
+            left: -9999px;
+        }
+
+        #menuBtn {
+            &:checked ~ .list {
+                display: block;
+            }
+        }
+        
+        img {
+            position: relative;
+            bottom: 53px;
+            left: 10px;
+            cursor: pointer;
+        }
+        ul {
+            background-color: #494B50;
+            width: 250px;
+            display: none;
+            position: relative;
+            bottom: 50px;
+            li {
+                font-size: 25px;
+                padding: 15px;
+                text-align: center;
+                color: white;
+                &:hover {
+                    background-color: #2E2F32;
+                }
+    
+                .li {
+                    color: white;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
     
     h1 {
         text-align: center;
         font-size: 45px;
         position: relative;
-        top: 30px;
+        top: 10px;
         font-weight: bold;
         color: white;
       
@@ -31,55 +76,18 @@ div {
         bottom: 100px;
         padding-right: 10px;
     }
-}
 
-.menubar {
-    input {
-        position: absolute;
-        left: -9999px;
-    }
-    img {
-        position: relative;
-        bottom: 30px;
-        left: 10px;
-        cursor: pointer;
-    }
-    ul {
-        background-color: #494B50;
-        width: 250px;
-        display: none;
-        position: relative;
-        bottom: 6px;
-        li {
-            font-size: 25px;
-            padding: 15px;
-            text-align: center;
+    .ls {
+        color: white;
+        &:hover {
+            text-decoration: none;
             color: white;
-            &:hover {
-                background-color: #2E2F32;
-            }
-
-            .li {
-                color: white;
-                &:hover {
-                    text-decoration: none;
-                }
-            }
         }
     }
 }
 
-#menuBtn {
-    &:checked ~ .list {
-        display: block;
-    }
-}
 
 
-.ls {
-    color: white;
-    &:hover {
-        text-decoration: none;
-        color: white;
-    }
-}
+
+
+
