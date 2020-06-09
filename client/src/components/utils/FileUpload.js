@@ -10,20 +10,21 @@ function FileUpload(props) {
 
     const dropHandler = (files) => {
 
-        let formData = new formData();
+        let formData = new FormData();
 
         const config = {
-            header: {'content-type': 'multipart/form-data'}
+            header: { 'content-type': 'multipart/form-data' }
         }
 
         formData.append("file", files[0])
-        axios.post('/api/product/image', formData, config)
+        axios.post('/api/photos/uploadfiles', formData, config)
             .then(response => {
-                if(response.data.success){
-                    setImages([...Images, response.data.filePath])
+                if (response.data.success) {
 
-                    props.refreshFunction([...Images, response.data.filePath])
-                }else{
+                    setImages([...Images, response.data.image])
+                    alert("파일 저장 성공")
+                    props.refreshFunction([...Images, response.data.image])
+                } else {
                     alert('파일을 저장하는데 실패했습니다.')
                 }
             })
@@ -31,7 +32,7 @@ function FileUpload(props) {
 
     const deleteHandler = (image) => {
         const currentIndex = Images.indexOf(image);
-        
+        console.log(currentIndex)
         let newImages = [...Images]
         newImages.splice(currentIndex, 1)
         setImages(newImages)
@@ -42,7 +43,7 @@ function FileUpload(props) {
     return (
         <div>
             <Dropzone onDrop={dropHandler}>
-                {({getRootProps, getInputProps}) =>(
+                {({ getRootProps, getInputProps }) => (
                     <section>
                         <div {...getRootProps()}>
                             <input {...getInputProps()} />
@@ -53,11 +54,11 @@ function FileUpload(props) {
             </Dropzone>
 
             <div>
-                {Images.map((image, index)=> (
-                    <div onclick={() => deleteHandler(image)} key={index}>
+                {Images.map((image, index) => (
+                    <div onClick={() => deleteHandler(image)} key={index}>
                         <img src={`http://localhost:5000/${image}`} />
                     </div>
-                    
+
                 ))}
             </div>
         </div>
