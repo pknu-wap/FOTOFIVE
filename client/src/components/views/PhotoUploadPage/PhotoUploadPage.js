@@ -79,11 +79,11 @@ function PhotoUploadPage(props) {
                             <textarea type="text" className="detailText" placeholder="상세내용" onChange={detailChangeHandler} value={Detail} />
                         </div>
                     </div>
-                    <label>Price($)</label>
+                    <label>Price(\)</label>
                     <input type="number"
                         className="priceText"
                         placeholder="가격 (\)"
-                        onchange={priceChangeHandler}
+                        onChange={priceChangeHandler}
                         value={Price} />
 
                     <div className="photoUploadBtn">
