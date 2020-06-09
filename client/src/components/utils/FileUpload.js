@@ -20,9 +20,10 @@ function FileUpload(props) {
         axios.post('/api/photos/uploadfiles', formData, config)
             .then(response => {
                 if (response.data.success) {
-                    setImages([...Images, response.data.filePath])
+
+                    setImages([...Images, response.data.image])
                     alert("파일 저장 성공")
-                    props.refreshFunction([...Images, response.data.filePath])
+                    props.refreshFunction([...Images, response.data.image])
                 } else {
                     alert('파일을 저장하는데 실패했습니다.')
                 }
@@ -31,7 +32,7 @@ function FileUpload(props) {
 
     const deleteHandler = (image) => {
         const currentIndex = Images.indexOf(image);
-
+        console.log(currentIndex)
         let newImages = [...Images]
         newImages.splice(currentIndex, 1)
         setImages(newImages)
@@ -54,7 +55,7 @@ function FileUpload(props) {
 
             <div>
                 {Images.map((image, index) => (
-                    <div onclick={() => deleteHandler(image)} key={index}>
+                    <div onClick={() => deleteHandler(image)} key={index}>
                         <img src={`http://localhost:5000/${image}`} />
                     </div>
 

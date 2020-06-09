@@ -4,13 +4,17 @@ import '../../views/reset.css';
 import './PhotoUploadPage.scss';
 import Footer from '../Footer/Footer'
 import FileUpload from '../../utils/FileUpload'
-import Axios from 'axios';
+import axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import { useSelector } from "react-redux";
+
+
 function PhotoUploadPage(props) {
+
 
     const [Title, setTitle] = useState("")
     const [Detail, setDetail] = useState("")
-    const [Price, setPrice] = useState(null)
+    const [Price, setPrice] = useState(0)
 
     const [Images, setImages] = useState([])
 
@@ -30,9 +34,10 @@ function PhotoUploadPage(props) {
         setImages(newImages)
     }
     const submitHandler = (event) => {
+
         event.preventDefault();
-        if (!Title || !Detail || !Price || !Images) {
-            return alert("모든 값을 넣어주셔야 합니다.")
+        if (!Title || !Detail || !Images) {
+            return alert("입력해라")
         }
 
         const body = {
@@ -43,12 +48,17 @@ function PhotoUploadPage(props) {
             images: Images,
         }
 
-        Axios.post("api/product", body)
+        console.log(body)
+
+        axios.post("/api/photos/uploadPhotos", body)
             .then(response => {
+                console.log("Ss")
                 if (response.data.success) {
-                    alert('사진 업로드에 성궁 하였습니다.')
+                    alert('사진 업로드에 성공 하였습니다.')
                     props.history.push('/')
+
                 } else {
+                    console.log("ds")
                     alert('사진 업로드에 실패 하였습니다.')
                 }
             })
@@ -69,10 +79,15 @@ function PhotoUploadPage(props) {
                             <textarea type="text" className="detailText" placeholder="상세내용" onChange={detailChangeHandler} value={Detail} />
                         </div>
                     </div>
-                    <input type="number" className="priceText" placeholder="가격 (\)" onchange={priceChangeHandler} value={Price} />
+                    <label>Price($)</label>
+                    <input type="number"
+                        className="priceText"
+                        placeholder="가격 (\)"
+                        onchange={priceChangeHandler}
+                        value={Price} />
 
                     <div className="photoUploadBtn">
-                        <button type="submit">업로드</button>
+                        <button type="submit" onSubmit={submitHandler}>업로드</button>
                     </div>
                 </fieldset>
             </form>
@@ -81,4 +96,4 @@ function PhotoUploadPage(props) {
     )
 }
 
-export default withRouter(PhotoUploadPage)
+export default PhotoUploadPage

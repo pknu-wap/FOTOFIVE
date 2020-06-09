@@ -11,17 +11,19 @@ const PhotoSchema = new mongoose.Schema({
         type: String,
         required: "Tilte is required"
     },
-    description: {
+    detail: {
         type: String,
     },
-    filePath: {
-        type: String,
+    images: {
+        type: Array,
+        default: []
     },
+    //이미지 배열로 입력받음
     price: {
         type: Number,
         default: 0
     },
-})
+}, { timestamps: true })
 
 const Photo = mongoose.model("Photo", PhotoSchema);
 
