@@ -6,11 +6,12 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import MainPage from './components/views/MainPage/MainPage'
+import RandingPage from './components/views/RandingPage/RandingPage'
 import LoginPage from './components/views/LoginPage/LoginPage'
 import RegisterPage from './components/views/RegisterPage/RegisterPage'
 import PhotoUploadPage from './components/views/PhotoUploadPage/PhotoUploadPage'
 import Auth from './hoc/auth'
+import CartPage from './components/views/CartPage/CartPage';
 
 function App() {
   return (
@@ -24,10 +25,12 @@ function App() {
         of them to render at a time
       */}
       <Switch>
-        <Route exact path="/" component={Auth(MainPage, null)} />
+        <Route exact path="/" component={Auth(RandingPage, null)} />
         <Route exact path="/login" component={Auth(LoginPage, false)} />
         <Route exact path="/register" component={Auth(RegisterPage, false)} />
         <Route exact path="/photo/upload" component={Auth(PhotoUploadPage, true)} />
+        <Route exact path="/user/cart" component={Auth(CartPage, true)} />
+
       </Switch>
     </div>
   </Router>

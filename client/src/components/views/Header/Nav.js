@@ -32,13 +32,15 @@ function Nav(props) {
                 <NavLink exact to="/register" className="ls">회원가입</NavLink>
             </div>
         )
-    } else if (user.userData && user.userData.isAuth) {
-        return (
-            <div>
-                <span className="ls" onClick={onClickHandler}>로그아웃</span>
-                <span className="ls ">{user.userData.name}</span>
-
-            </div>
+    }else if(user.userData && user.userData.isAuth) {
+        return(
+        <div>
+            <span className="ls" onClick={onClickHandler}>로그아웃</span>
+            <span>|</span>
+            <span className="ls ">{user.userData.name}</span>
+            <span>|</span>
+            <NavLink exact to="/user/cart" className="ls">장바구니</NavLink>
+        </div>
         )
     } else {
         return (
@@ -47,6 +49,7 @@ function Nav(props) {
                 <span>|</span>
                 <NavLink exact to="/register" className="ls">회원가입</NavLink>
             </div>
+
         )
     }
 }
