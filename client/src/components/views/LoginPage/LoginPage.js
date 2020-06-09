@@ -5,7 +5,7 @@ import LoginImage from './LoginImage.png';
 import { Button } from 'reactstrap';
 import {useDispatch} from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
-
+import { withRouter } from 'react-router-dom';
 function LoginPage(props) {
     const dispatch = useDispatch();
 
@@ -40,7 +40,7 @@ function LoginPage(props) {
     }
 
     return (
-        <div id="body">
+        <div className="login-page">
             <div className="contents">
                 <div className="photoinner">
                     <h1>FOTOFIVE</h1>
@@ -61,4 +61,4 @@ function LoginPage(props) {
     )
 }
 
-export default LoginPage
+export default withRouter(LoginPage)

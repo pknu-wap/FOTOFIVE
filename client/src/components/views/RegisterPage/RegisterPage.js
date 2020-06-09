@@ -5,6 +5,7 @@ import SignupImage from './registerUser.png';
 import { Button } from 'reactstrap';
 import {useDispatch} from 'react-redux';
 import { registerUser } from '../../../_actions/user_action';
+import { withRouter } from 'react-router-dom';
 
 function RegisterPage(props) {
 
@@ -57,7 +58,7 @@ function RegisterPage(props) {
     }
 
     return (
-        <div id="body">
+        <div className="login-page">
             <div className="signupcontents">
                 <div className="photoinner">
                     <h1>FOTOFIVE</h1>
@@ -82,4 +83,4 @@ function RegisterPage(props) {
     )
 }
 
-export default RegisterPage
+export default withRouter(RegisterPage);

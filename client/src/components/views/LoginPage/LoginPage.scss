@@ -10,7 +10,7 @@ html, body {
     width: 100%; height: 100%;
 }
 
-#body {
+.login-page {
     background-color: #20273A;
     width: 100%;
     height: 100%;
@@ -18,7 +18,7 @@ html, body {
 }
 
 
-.contents {
+.login-page .contents {
     width: 800px;
     height: 500px;
     position:absolute;
@@ -33,6 +33,16 @@ html, body {
         margin-left: 50px;
         padding: 10px;
     }
+
+    .photoinner {
+        width: 480px;
+        h1 {
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+        }
+    }
+
     form {
         fieldset{
             float: right;
@@ -68,11 +78,3 @@ html, body {
     }
 }
 
-.photoinner {
-    width: 480px;
-    h1 {
-        text-align: center;
-        padding: 20px;
-        font-weight: bold;
-    }
-}
