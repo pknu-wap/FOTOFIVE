@@ -10,7 +10,7 @@ function FileUpload(props) {
 
     const dropHandler = (files) => {
 
-        let formData = new formData();
+        let formData = new FormData();
 
         const config = {
             header: {'content-type': 'multipart/form-data'}
