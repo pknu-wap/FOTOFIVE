@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import './RandingPage.scss'
+import './LandingPage.scss'
 import '../../views/reset.css';
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import axios from 'axios';
 
-function RandingPage() {
+function LandingPage() {
     useEffect(() => {
         axios.post('/api/product/products')
             .then(response => {
@@ -17,6 +17,7 @@ function RandingPage() {
             })
      
     }, [])
+    
 
 
 
@@ -28,4 +29,4 @@ function RandingPage() {
     )
 }
 
-export default RandingPage
+export default LandingPage
