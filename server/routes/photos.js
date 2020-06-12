@@ -65,16 +65,17 @@ router.get("/getPhotos", async (req, res) => {
 
 });
 
-router.post("/getphoto", (req, res) => {
+router.get("/getphoto", (req, res) => {
 
-    Photo.findOne({ "_id": req.body.photoId })
-        .populate('writer')
+    let type = req.query.type
+    let photoId = req.query.id
+
+    Photo.find({ _id: photoId })
+        .populate("writer")
         .exec((err, photo) => {
-            if (err) return res.status(400).send(err);
-            res.status(200).json({ success: true, photo })
+            if (err) return res.status(400).send(err)
+            return res.status(200).send({ success: true, photo })
         })
-
-
 
 });
 
