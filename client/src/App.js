@@ -11,6 +11,7 @@ import LoginPage from './components/views/LoginPage/LoginPage'
 import RegisterPage from './components/views/RegisterPage/RegisterPage'
 import PhotoUploadPage from './components/views/PhotoUploadPage/PhotoUploadPage'
 import Auth from './hoc/auth'
+import PhotoDetailPage from './components/views/PhotoDetailPage/PhotoDetailPage';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/login" component={Auth(LoginPage, false)} />
         <Route exact path="/register" component={Auth(RegisterPage, false)} />
         <Route exact path="/photo/upload" component={Auth(PhotoUploadPage, true)} />
+        <Route exact path="/photo/:photoId" component={Auth(PhotoDetailPage, null)} />
       </Switch>
   </Router>
   );
