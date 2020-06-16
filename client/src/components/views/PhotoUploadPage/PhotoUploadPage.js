@@ -5,8 +5,6 @@ import './PhotoUploadPage.scss';
 import Footer from '../Footer/Footer'
 import FileUpload from '../../utils/FileUpload'
 import axios from 'axios';
-import { withRouter } from 'react-router-dom';
-import { useSelector } from "react-redux";
 
 
 function PhotoUploadPage(props) {

@@ -1,4 +1,58 @@
+.inner {
+    height: 100%;
+}
+
+.landingPage {
+    height: 100%;
+    width: 100%;
+}
+
 #button {
     position: relative;
     bottom: 500px;
 }
+
+.card {
+    width: 220px;
+    height: 250px;
+    margin: 30px;
+    float: left;
+    overflow: hidden;
+    background-color: gray;
+
+    .imgInner {
+        height: 150px;
+        margin: 0 auto;
+
+        .cardImg {
+            width: inherit;
+            height: inherit;
+            text-align: center;
+            
+        }
+    }
+    .list-group-flush {
+        height: 60px;
+
+        .photoTitle{
+            font-size: 18px;
+        }
+        .photoPrice {
+            font-size: 15px;
+            color: gray;
+        }
+    }
+}
+
+.cardInner {
+    width: 840px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.cardContainer {
+    margin-top: 150px;
+    margin-bottom: 300px;    
+    height: 100%;
+}
+

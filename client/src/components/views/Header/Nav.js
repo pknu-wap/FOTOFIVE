@@ -34,19 +34,16 @@ function Nav(props) {
         )
     }else if(user.userData && user.userData.isAuth) {
         return(
-        <div>
+        <div className="userinfo">
             <span className="ls" onClick={onClickHandler}>로그아웃</span>
-            <span>|</span>
             <span className="ls ">{user.userData.name}</span>
-            <span>|</span>
             <NavLink exact to="/user/cart" className="ls">장바구니</NavLink>
         </div>
         )
     } else {
         return (
-            <div className="loginsignup">
+            <div className="loginSignUp">
                 <NavLink exact to="/login" className="ls">로그인</NavLink>
-                <span>|</span>
                 <NavLink exact to="/register" className="ls">회원가입</NavLink>
             </div>
 
