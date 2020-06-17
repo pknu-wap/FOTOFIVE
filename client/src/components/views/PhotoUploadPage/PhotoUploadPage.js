@@ -83,7 +83,7 @@ function PhotoUploadPage(props) {
                     <input type="number"
                         className="priceText"
                         placeholder="가격 (\)"
-                        onchange={priceChangeHandler}
+                        onChange={priceChangeHandler}
                         value={Price} />
 
                     <div className="photoUploadBtn">

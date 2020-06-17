@@ -56,13 +56,63 @@ router.post("/uploadPhotos", async (req, res) => {
 
 router.get("/getPhotos", async (req, res) => {
 
-    Photo.find()
-        .populate('writer')
-        .exec((err, Photos) => {
-            if (err) return res.status(400).send(err);
-            res.status(200).json({ success: true, Photos })
-        })
+    let order = req.body.order ? req.body.order : "desc";
+    let sortBy = req.body.sortBy ? req.body.sortBy : "_id";
+    let limit = req.body.limit ? parseInt(req.body.limit) : 20;
+    let skip = req.body.skip ? parseInt(req.body.skip) : 0;
+    let term = req.body.searchTerm
 
+
+    let findArgs = {};
+
+    for (let key in req.body.filters) {
+        if (req.body.filters[key].length > 0) {
+
+            console.log('key', key)
+
+            if (key === "price") {
+                findArgs[key] = {
+                    //Greater than equal
+                    $gte: req.body.filters[key][0],
+                    //Less than equal
+                    $lte: req.body.filters[key][1]
+                }
+            } else {
+                findArgs[key] = req.body.filters[key];
+            }
+
+        }
+    }
+
+
+    if (term) {
+        Photo.find(findArgs)
+            .find({ $text: { $search: term } })
+            .populate("writer")
+            .sort([[sortBy, order]])
+            .skip(skip)
+            .limit(limit)
+            .exec((err, photoInfo) => {
+                if (err) return res.status(400).json({ success: false, err })
+                return res.status(200).json({
+                    success: true, photoInfo,
+                    postSize: photoInfo.length
+                })
+            })
+    } else {
+        Photo.find(findArgs)
+            .populate("writer")
+            .sort([[sortBy, order]])
+            .skip(skip)
+            .limit(limit)
+            .exec((err, photoInfo) => {
+                if (err) return res.status(400).json({ success: false, err })
+                return res.status(200).json({
+                    success: true, photoInfo,
+                    postSize: photoInfo.length
+                })
+            })
+    }
 });
 
 router.get("/getphoto", (req, res) => {

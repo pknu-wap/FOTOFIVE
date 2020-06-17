@@ -5,11 +5,12 @@ import Footer from '../Footer/Footer'
 function CartPage() {
 
     useEffect(() => {
-        
-      
+
+
+
     }, [])
 
-    
+
     return (
         <div>
             <Header />
