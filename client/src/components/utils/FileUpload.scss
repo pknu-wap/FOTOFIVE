@@ -1,4 +1,19 @@
-.photoImg {
+.photoImgIcon {
     width: 200px;
     
+}
+
+.photoinner {
+    div {
+        width: 300px;
+        margin: 0 auto;
+        div {
+            overflow-y: auto;
+
+            img {
+                width: 300px;
+                margin-top: 20px;
+            }
+        }
+    }
 }

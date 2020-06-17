@@ -25,6 +25,16 @@ const PhotoSchema = new mongoose.Schema({
     },
 }, { timestamps: true })
 
+PhotoSchema.index({
+    title: 'text',
+    detail: 'text'
+},{
+    weights:{
+        title: 5,
+        detail: 1
+    }
+})
+
 const Photo = mongoose.model("Photo", PhotoSchema);
 
 module.exports = { Photo }

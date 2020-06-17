@@ -22,7 +22,6 @@ function FileUpload(props) {
                 if (response.data.success) {
 
                     setImages([...Images, response.data.image])
-                    alert("파일 저장 성공")
                     props.refreshFunction([...Images, response.data.image])
                 } else {
                     alert('파일을 저장하는데 실패했습니다.')
@@ -41,13 +40,13 @@ function FileUpload(props) {
     }
 
     return (
-        <div>
-            <Dropzone onDrop={dropHandler}>
+        <div className="photoinner">
+            <Dropzone onDrop={dropHandler} className="photoinner">
                 {({ getRootProps, getInputProps }) => (
                     <section>
-                        <div {...getRootProps()}>
+                        <div  className="photoImgIconInner" {...getRootProps()}>
                             <input {...getInputProps()} />
-                            <img className="photoImg" src={photoImg}></img>
+                            <img className="photoImgIcon" src={photoImg}></img>
                         </div>
                     </section>
                 )}

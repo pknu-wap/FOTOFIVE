@@ -1,0 +1,27 @@
+.searchInner {
+    margin: 0 auto;
+    width: 680px;
+    text-align: center;
+
+    h1 {
+        font-weight: bold;
+        float: left;
+
+    }
+    .searchBox {
+        width: 400px;
+        float: left;
+        margin-left: 50px;
+        margin-top: 7px;
+
+    }
+
+    .searchIcon{
+        float: right;
+        margin-top: 13px;
+    }
+}
+
+.searchFeature {
+    margin-top: 50px;
+}

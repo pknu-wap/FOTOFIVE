@@ -5,8 +5,6 @@ import './PhotoUploadPage.scss';
 import Footer from '../Footer/Footer'
 import FileUpload from '../../utils/FileUpload'
 import axios from 'axios';
-import { withRouter } from 'react-router-dom';
-import { useSelector } from "react-redux";
 
 
 function PhotoUploadPage(props) {
@@ -79,7 +77,7 @@ function PhotoUploadPage(props) {
                             <textarea type="text" className="detailText" placeholder="상세내용" onChange={detailChangeHandler} value={Detail} />
                         </div>
                     </div>
-                    <label>Price($)</label>
+                    <label>Price(\)</label>
                     <input type="number"
                         className="priceText"
                         placeholder="가격 (\)"
