@@ -79,7 +79,34 @@ router.get("/getphoto", (req, res) => {
 
 });
 
+router.post("/main", (req, res) => {
 
+    let skip = req.body.skip ? parseInt(req.body.skip) : 0;
+    let term = req.body.SearchTerm
+
+    if(term){
+        Photo.find()
+        .find({ $text: { $search: term } })
+        .populate("writer")
+        .skip(skip)
+        .exec((err, photoInfo) => {
+            if(err) return res.status(400).json({success:false, err})
+            return res.status(200).json({success:true,photoInfo})
+        })
+    }else {
+        Photo.find()
+        .populate("writer")
+        .skip(skip)
+        .exec((err, photoInfo) => {
+            if(err) return res.status(400).json({success:false, err})
+            return res.status(200).json({success:true,photoInfo})
+        })
+    }
+
+   
+
+
+});
 
 
 

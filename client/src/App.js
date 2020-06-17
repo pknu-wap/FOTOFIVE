@@ -6,17 +6,16 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import RandingPage from './components/views/RandingPage/RandingPage'
+import LandingPage from './components/views/LandingPage/LandingPage'
 import LoginPage from './components/views/LoginPage/LoginPage'
 import RegisterPage from './components/views/RegisterPage/RegisterPage'
 import PhotoUploadPage from './components/views/PhotoUploadPage/PhotoUploadPage'
 import Auth from './hoc/auth'
-import CartPage from './components/views/CartPage/CartPage';
+// import PhotoDetailPage from './components/views/PhotoDetailPage/PhotoDetailPage';
 
 function App() {
   return (
     <Router>
-    <div>
       {/*
         A <Switch> looks through all its children <Route>
         elements and renders the first one whose path
@@ -25,14 +24,12 @@ function App() {
         of them to render at a time
       */}
       <Switch>
-        <Route exact path="/" component={Auth(RandingPage, null)} />
+        <Route exact path="/" component={Auth(LandingPage, null)} />
         <Route exact path="/login" component={Auth(LoginPage, false)} />
         <Route exact path="/register" component={Auth(RegisterPage, false)} />
         <Route exact path="/photo/upload" component={Auth(PhotoUploadPage, true)} />
-        <Route exact path="/user/cart" component={Auth(CartPage, true)} />
-
+        {/* <Route exact path="/photo/:photoId" component={Auth(PhotoDetailPage, null)} /> */}
       </Switch>
-    </div>
   </Router>
   );
 }

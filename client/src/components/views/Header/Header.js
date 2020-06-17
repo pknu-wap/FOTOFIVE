@@ -21,10 +21,7 @@ function Header(props, user) {
                 <label for="menuBtn" className="menuBtn"><img src={menuicon} /></label>
                 <ul className="list">
                     <li><NavLink exact to="/photo/upload" className="li">사진 업로드</NavLink></li>
-                    <li><NavLink exact to="#" className="li">정렬 페이지</NavLink></li>
-                    <li><NavLink exact to="#" className="li">마이 페이지</NavLink></li>
                     <li><NavLink exact to="#" className="li">충전</NavLink></li>
-                    <li><NavLink exact to="#" className="li">기프티콘 교환</NavLink></li>
                 </ul>
             </div>
 
