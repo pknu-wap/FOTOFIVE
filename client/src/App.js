@@ -11,7 +11,6 @@ import LoginPage from './components/views/LoginPage/LoginPage'
 import RegisterPage from './components/views/RegisterPage/RegisterPage'
 import PhotoUploadPage from './components/views/PhotoUploadPage/PhotoUploadPage'
 import Auth from './hoc/auth'
-
 import CartPage from './components/views/CartPage/CartPage';
 import PhotoDetailPage from './components/views/PhotoDetailPage/PhotoDetailPage';
 
@@ -27,6 +26,7 @@ function App() {
         of them to render at a time
       */}
 
+
       <div>
         <Switch>
           <Route exact path="/" component={Auth(LandingPage, null)} />
@@ -38,6 +38,7 @@ function App() {
 
         </Switch>
       </div>
+
 
     </Router>
   );

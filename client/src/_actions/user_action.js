@@ -41,6 +41,7 @@ export function auth() {
 }
 
 
+
 export function addToCart(_id) {
     const request = Axios.get(`/api/users/addToCart?photoId=${_id}`)
         .then(response => response.data);
