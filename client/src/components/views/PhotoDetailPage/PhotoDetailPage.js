@@ -18,6 +18,7 @@ function PhotoDetailPage(props) {
     }, [])
     return (
         <div>
+            ddd
             <h1>{photo.title}</h1>
         </div>
     )
