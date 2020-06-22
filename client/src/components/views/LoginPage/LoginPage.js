@@ -5,7 +5,7 @@ import LoginImage from './LoginImage.png';
 import { Button } from 'reactstrap';
 import {useDispatch} from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
-import { withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 
 function LoginPage(props) {
@@ -42,7 +42,7 @@ function LoginPage(props) {
     }
 
     return (
-        <div className="login-page">
+        <div className="loginRegisterPage">
             <div className="contents">
                 <div className="photoinner">
                     <h1>FOTOFIVE</h1>
@@ -56,6 +56,7 @@ function LoginPage(props) {
                         <label>비밀번호</label>
                         <input type="password" className="text" value={Password} onChange={onPasswordHandler}/>
                         <Button className="button" type="submit" color="#E8E9EB" size="lg">Log in</Button>
+                        <NavLink exact to="/register" className="registerLink">회원가입</NavLink>
                     </fieldset>
                 </form>
             </div>

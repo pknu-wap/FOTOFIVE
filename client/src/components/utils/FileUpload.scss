@@ -1,18 +1,24 @@
-.photoImgIcon {
+.photoImgIconInner {
     width: 200px;
-    
+    margin: 0 auto;
+    .photoImgIcon {
+        width: 200px;
+
+    }
 }
 
-.photoinner {
-    div {
-        width: 300px;
-        margin: 0 auto;
-        div {
-            overflow-y: auto;
+.uploadphotoinner {
+    margin-top: 45px;
+}
 
+.photoIconInner {
+    div {
+        div {
+            width: 500px;
+            margin: 0 auto;
             img {
-                width: 300px;
-                margin-top: 20px;
+                width: 500px;
+                margin: 50px 0px 50px 0px;
             }
         }
     }

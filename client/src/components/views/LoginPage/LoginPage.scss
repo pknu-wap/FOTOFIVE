@@ -10,7 +10,7 @@ html, body {
     width: 100%; height: 100%;
 }
 
-.login-page {
+.loginRegisterPage {
     background-color: #20273A;
     width: 100%;
     height: 100%;
@@ -18,7 +18,7 @@ html, body {
 }
 
 
-.login-page .contents {
+.loginRegisterPage .contents {
     width: 800px;
     height: 500px;
     position:absolute;
@@ -63,7 +63,7 @@ html, body {
             .text {
                 width: 250px;
                 height: 40px;
-                margin-top: 20px;
+                margin-top: 10px;
             }
             .button {
                 border-radius: 5px;
@@ -78,3 +78,11 @@ html, body {
     }
 }
 
+.registerLink {
+    text-align: right;
+    margin-top: 10px;
+    color: black;
+    &:hover {
+        color: black;
+    }
+}
