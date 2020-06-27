@@ -10,8 +10,8 @@ import LandingPage from './components/views/LandingPage/LandingPage'
 import LoginPage from './components/views/LoginPage/LoginPage'
 import RegisterPage from './components/views/RegisterPage/RegisterPage'
 import PhotoUploadPage from './components/views/PhotoUploadPage/PhotoUploadPage'
+import CartPage from './components/views/CartPage/CartPage'
 import Auth from './hoc/auth'
-import CartPage from './components/views/CartPage/CartPage';
 import PhotoDetailPage from './components/views/PhotoDetailPage/PhotoDetailPage';
 
 function App() {

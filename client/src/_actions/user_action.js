@@ -3,7 +3,8 @@ import {
     LOGIN_USER,
     REGISTER_USER,
     AUTH_USER,
-    ADD_TO_CART
+    ADD_TO_CART,
+    GET_CART_ITEMS
 }
     from './types';
 
@@ -41,7 +42,6 @@ export function auth() {
 }
 
 
-
 export function addToCart(_id) {
     const request = Axios.get(`/api/users/addToCart?photoId=${_id}`)
         .then(response => response.data);
@@ -51,5 +51,29 @@ export function addToCart(_id) {
         payload: request
     }
 }
+
+export function getCartItems(cartItems, userCart){
+    const request = Axios.get(`/api/photo/photos_by_id?id=${cartItems}&type=array`)
+        .then(response =>{
+
+            userCart.forEach(cartItem => {
+                response.data.forEach((photoDetail, index) => {
+                    if(cartItem.id === photoDetail.__id){
+                        response.data.photo[index].quantity = cartItems.quantity
+                    }
+                })
+            })
+            
+
+            return response.data;
+               });
+        
+    return {
+        type: GET_CART_ITEMS,
+        payload: request
+
+    }
+}
+
 
 

@@ -1,8 +1,11 @@
+
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useDispatch } from "react-redux";
 import PhotoInfo from "./Sections/PhotoInfo"
 import { addToCart } from '../../../_actions/user_action';
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 
 function PhotoDetailPage(props) {
 
@@ -30,13 +33,12 @@ function PhotoDetailPage(props) {
 
     return (
         <div>
-
+            <Header />
             <PhotoInfo
                 addToCart={addToCartHandler}
                 detail={photo} />
+            <Footer />
         </div>
-
-
 
     )
 }

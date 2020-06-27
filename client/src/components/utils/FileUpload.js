@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Dropzone from 'react-dropzone'
-import photoImg from './photoImg.png';
+import cameraIcon from './camera_icon.png';
 import axios from 'axios';
 import './FileUpload.scss'
 
@@ -40,13 +40,13 @@ function FileUpload(props) {
     }
 
     return (
-        <div className="photoinner">
-            <Dropzone onDrop={dropHandler} className="photoinner">
+        <div className="photoIconInner">
+            <Dropzone onDrop={dropHandler} className="uploadphotoinner">
                 {({ getRootProps, getInputProps }) => (
                     <section>
-                        <div  className="photoImgIconInner" {...getRootProps()}>
+                        <div className="photoImgIconInner" {...getRootProps()}>
                             <input {...getInputProps()} />
-                            <img className="photoImgIcon" src={photoImg}></img>
+                            <img className="photoImgIcon" src={cameraIcon}></img>
                         </div>
                     </section>
                 )}

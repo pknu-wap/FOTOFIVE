@@ -5,7 +5,7 @@ import './PhotoUploadPage.scss';
 import Footer from '../Footer/Footer'
 import FileUpload from '../../utils/FileUpload'
 import axios from 'axios';
-
+import { Form } from 'react-bootstrap'
 
 function PhotoUploadPage(props) {
 
@@ -66,24 +66,24 @@ function PhotoUploadPage(props) {
             <Header />
             <form className="uploadForm" onSubmit={submitHandler}>
                 <fieldset className="center-block">
-                    <legend>Upload</legend>
+                    <legend>UPLOAD</legend>
                     <FileUpload refreshFunction={updateImages} />
                     <div className="line"></div>
                     <div className="titleAndDetail">
                         <div className="titleInner">
-                            <input type="text" className="title" onChange={titleChangeHandler} value={Title} placeholder="제목" />
+                            <Form.Label className="label">제목</Form.Label>
+                            <Form.Control type="text" className="title" onChange={titleChangeHandler} value={Title} />
                         </div>
                         <div className="detailInner">
-                            <textarea type="text" className="detailText" placeholder="상세내용" onChange={detailChangeHandler} value={Detail} />
+                            <Form.Label className="label">상세 내용</Form.Label>
+                            <Form.Control as="textarea" type="text" className="detailText" onChange={detailChangeHandler} value={Detail} />
                         </div>
                     </div>
-                    <label>Price(\)</label>
-                    <input type="number"
+                    <Form.Label className="label">가격(\)</Form.Label>
+                    <Form.Control type="number"
                         className="priceText"
-                        placeholder="가격 (\)"
                         onChange={priceChangeHandler}
                         value={Price} />
-
                     <div className="photoUploadBtn">
                         <button type="submit" onSubmit={submitHandler}>업로드</button>
                     </div>
