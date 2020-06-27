@@ -4,7 +4,8 @@ import {
     REGISTER_USER,
     AUTH_USER,
     ADD_TO_CART,
-    GET_CART_ITEMS
+    GET_CART_ITEMS,
+    REMOVE_CART_ITEM
 }
     from './types';
 
@@ -76,4 +77,24 @@ export function getCartItems(cartItems, userCart) {
 }
 
 
+export function removeCartItem(photoId) {
+    const request = Axios.get(`/api/users/removeFromCart?id=${photoId}`)
+        .then(response => {
 
+            response.data.cart.forEach(item => {
+                response.data.photoInfo.forEach((photo, index) => {
+                    if(item.id === photo._id){
+                        response.data.photoInfo[index].quantity = item.quantity
+                    }
+                })
+            })
+
+            return response.data;
+        });
+
+    return {
+        type: REMOVE_CART_ITEM,
+        payload: request
+
+    }
+}

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { User } = require("../models/User");
 const { auth } = require("../middleware/auth");
+const { Photo } = require('../models/Photos');
 
 router.post('/register', (req, res) => {
     // 회원가입할 때 필요한 정보들을 client에서 가져오면 그것들을 데이터 베이스에 넣어준다.
@@ -118,5 +119,30 @@ router.get('/addToCart', auth, (req, res) => {
     })
 });
 
+router.get('/removeFromCart', auth, (req,res) => {
+    User.findOneAndUpdate(
+        {_id: req.user._id},
+        {
+            "$pull":
+            {"cart" :{"id" : req.query.id}}
+        },
+        {new: true},
+        (err, userInfo) => {
+            let cart = userInfo.cart;
+            let array = cart.map(item => {
+                return item.id
+            })
+            
+            Photo.find({_id : {$in:array}})
+                .populate('writer')
+                .exec((err, photoInfo) => {
+                    return res.status(200).json({
+                        photoInfo,
+                        cart
+                    })
+                })
+        }
+    )
+})
 
 module.exports = router;

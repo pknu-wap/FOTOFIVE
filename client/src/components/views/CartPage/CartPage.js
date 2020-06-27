@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { getCartItems } from '../../../_actions/user_action'
+import { getCartItems, removeCartItem } from '../../../_actions/user_action'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import UserCardBlock from '../CartPage/Sections/UserCardBlock'
@@ -9,7 +9,8 @@ import UserCardBlock from '../CartPage/Sections/UserCardBlock'
 function CartPage(props) {
 
     const dispatch = useDispatch();
-    //console.log(props.user);
+    const [Total, setTotal] = useState(0)
+    const [ShowTotal, setShowTotal] = useState(false)
 
     useEffect(() => {
 
@@ -22,17 +23,54 @@ function CartPage(props) {
                 })
 
                 dispatch(getCartItems(cartItems, props.user.userData.cart))
+                    .then(response => {
+                        calculateTotal(response.payload)
+                    })
             }
         }
     }, [props.user.userData])
 
+
+    let calculateTotal = (cartDetail) => {
+        let total = 0;
+
+        cartDetail.map(item => {
+            total += parseInt(item.price, 10)
+        })
+
+        setTotal(total)
+        setShowTotal(true)
+    }
+
+    let removeFromCart = (photoId) => {
+
+        dispatch(removeCartItem(photoId))
+            .then(response => {
+
+                if (response.payload.photoInfo.length <= 0) {
+                    setShowTotal(false)
+                }
+
+            })
+
+    }
     return (
         <div>
             <Header />
             <h1>MY CART</h1>
             <UserCardBlock
-                photos={props.user.cartDetail}
+                photos={props.user.cartDetail} removeItem={removeFromCart}
             />
+
+            <div>
+
+                {ShowTotal ? <h2>
+                    총 금액{Total}
+                </h2>
+                :
+                <div></div>}
+                
+            </div>
             <Footer />
         </div>
     )
