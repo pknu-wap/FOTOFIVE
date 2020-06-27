@@ -10,8 +10,6 @@ function CartPage(props) {
 
     const dispatch = useDispatch();
 
-    console.log(props);
-
     const [Total, setTotal] = useState(0)
     const [ShowTotal, setShowTotal] = useState(false)
 
@@ -25,6 +23,8 @@ function CartPage(props) {
                 props.user.userData.cart.forEach(item => {
                     cartItems.push(item.id)
                 })
+
+
 
                 dispatch(getCartItems(cartItems, props.user.userData.cart))
                     .then(response => {

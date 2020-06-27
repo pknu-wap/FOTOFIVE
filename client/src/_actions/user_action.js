@@ -44,6 +44,8 @@ export function auth() {
 
 
 export function addToCart(_id) {
+
+
     const request = Axios.get(`/api/users/addToCart?photoId=${_id}`)
         .then(response => response.data);
 
@@ -56,12 +58,17 @@ export function addToCart(_id) {
 export function getCartItems(cartItems, userCart) {
     const request = Axios.get(`/api/photos/photo_by_id?id=${cartItems}&type=array`)
         .then(response => {
-
+            //console.log(response)
             userCart.forEach(cartItem => {
+                //console.log(cartItem)
                 response.data.forEach((photoDetail, index) => {
-                    if (cartItem.id === photoDetail.__id) {
-                        response.data.photo[index].quantity = cartItems.quantity
+                    //console.log(photoDetail)
+                    if (cartItem.id === photoDetail._id) {
+                        response.data[index].quantity = cartItem.quantity
+                        console.log(cartItem.quantity)
                     }
+                    // console.log(cartItem.id)
+                    // console.log(photoDetail._id)
                 })
             })
 
@@ -83,7 +90,7 @@ export function removeCartItem(photoId) {
 
             response.data.cart.forEach(item => {
                 response.data.photoInfo.forEach((photo, index) => {
-                    if(item.id === photo._id){
+                    if (item.id === photo._id) {
                         response.data.photoInfo[index].quantity = item.quantity
                     }
                 })

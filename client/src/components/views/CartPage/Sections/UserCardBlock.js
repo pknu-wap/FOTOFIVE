@@ -8,7 +8,7 @@ function UserCardBlock(props) {
             return `http://localhost:5000/${image}`
         }
     }
-    console.log(props.products)
+    console.log(props.photos)
     const renderItems = () => (
 
         props.photos && props.photos.map((photo, index) => (
@@ -17,6 +17,7 @@ function UserCardBlock(props) {
 
                     <img src={renderCartImage(photo.images)} />
                 </td>
+                <td>{photo.quantity} EA</td>
                 <td>
                     {photo.price}
                 </td>

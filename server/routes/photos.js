@@ -134,26 +134,26 @@ router.post("/main", (req, res) => {
     let skip = req.body.skip ? parseInt(req.body.skip) : 0;
     let term = req.body.SearchTerm
 
-    if(term){
+    if (term) {
         Photo.find()
-        .find({ $text: { $search: term } })
-        .populate("writer")
-        .skip(skip)
-        .exec((err, photoInfo) => {
-            if(err) return res.status(400).json({success:false, err})
-            return res.status(200).json({success:true,photoInfo})
-        })
-    }else {
+            .find({ $text: { $search: term } })
+            .populate("writer")
+            .skip(skip)
+            .exec((err, photoInfo) => {
+                if (err) return res.status(400).json({ success: false, err })
+                return res.status(200).json({ success: true, photoInfo })
+            })
+    } else {
         Photo.find()
-        .populate("writer")
-        .skip(skip)
-        .exec((err, photoInfo) => {
-            if(err) return res.status(400).json({success:false, err})
-            return res.status(200).json({success:true,photoInfo})
-        })
+            .populate("writer")
+            .skip(skip)
+            .exec((err, photoInfo) => {
+                if (err) return res.status(400).json({ success: false, err })
+                return res.status(200).json({ success: true, photoInfo })
+            })
     }
 
-   
+
 
 
 });
@@ -163,17 +163,17 @@ router.get('/photo_by_id', (req, res) => {
     let type = req.query.type
     let photoIds = req.query.id
 
-    if(type === "array") {
+    if (type === "array") {
         let ids = req.query.id.split(',')
-        photoIds =ids.map(item => {
+        photoIds = ids.map(item => {
             return item
         })
     }
 
-    Photo.find({ _id: {$in: photoIds} })
+    Photo.find({ '_id': { $in: photoIds } })
         .populate('writer')
         .exec((err, photo) => {
-            if(err) return res.status(400).send(err)
+            if (err) return res.status(400).send(err)
             return res.status(200).send(photo)
         })
 })
