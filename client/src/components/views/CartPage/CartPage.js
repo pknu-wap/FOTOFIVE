@@ -26,13 +26,12 @@ function CartPage(props) {
         }
     }, [props.user.userData])
 
-    //products={props.user.cartDetail}
     return (
         <div>
             <Header />
             <h1>MY CART</h1>
             <UserCardBlock
-                products={props.user.cartDetail}
+                photos={props.user.cartDetail}
             />
             <Footer />
         </div>

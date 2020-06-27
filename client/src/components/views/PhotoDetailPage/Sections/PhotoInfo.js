@@ -20,9 +20,16 @@ function PhotoInfo(props) {
 
     return (
         <div>
+            <div className="photoInfo">
+                <div>{props.detail.title}</div>
+                <div>{props.detail.detail}</div>
+                <div>{props.detail.price}</div>
+            </div>
             <button onClick={clickHandler} onClick={addToCarthandler}>
                 장바구니에 추가
             </button>
+            
+
         </div>
     )
 }
