@@ -15,7 +15,7 @@ const userSchema = mongoose.Schema({
     },
     password: {
         type: String,
-        minlength:5,
+        minlength: 5,
     },
     lastname: {
         type: String,
@@ -24,6 +24,14 @@ const userSchema = mongoose.Schema({
     role: {
         type: Number,
         default: 0,
+    },
+    cart: {
+        type: Array,
+        default: []
+    },
+    history: {
+        type: Array,
+        default: []
     },
     image: String,
     token: {
@@ -34,7 +42,7 @@ const userSchema = mongoose.Schema({
     }
 })
 
-userSchema.pre('save', function(next){
+userSchema.pre('save', function (next) {
     var user = this;
     if (user.isModified('password')) {
         // 비밀번호를 암호화시킨다
@@ -47,7 +55,7 @@ userSchema.pre('save', function(next){
                 next()
             })
         })
-    }   else {
+    } else {
         next()
     }
 })
@@ -55,7 +63,7 @@ userSchema.pre('save', function(next){
 userSchema.methods.comparePassword = function (plainPassword, cb) {
     bcrypt.compare(plainPassword, this.password, function (err, isMatch) {
         if (err) return cb(err);
-            cb(null, isMatch)
+        cb(null, isMatch)
     })
 }
 
@@ -69,13 +77,13 @@ userSchema.methods.generateToken = function (cb) {
     // 'secretToken' -> user._id
 
     user.token = token
-    user.save(function(err, user) {
-        if(err) return cb(err);
+    user.save(function (err, user) {
+        if (err) return cb(err);
         cb(null, user)
     })
 }
 
-userSchema.statics.findByToken = function(token, cb) {
+userSchema.statics.findByToken = function (token, cb) {
     var user = this;
     // user._id + '' = token
     // 토큰을 decode 한다.
