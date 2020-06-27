@@ -4,7 +4,7 @@ import { getCartItems, removeCartItem } from '../../../_actions/user_action'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import UserCardBlock from '../CartPage/Sections/UserCardBlock'
-
+import './CartPage.scss'
 
 function CartPage(props) {
 
@@ -59,7 +59,7 @@ function CartPage(props) {
 
     }
     return (
-        <div>
+        <div className="CartPage">
             <Header />
             <h1>MY CART</h1>
             <UserCardBlock
@@ -68,8 +68,8 @@ function CartPage(props) {
 
             <div>
 
-                {ShowTotal ? <h2>
-                    총 금액{Total}
+                {ShowTotal ? <h2 className="totalPrice">
+                    총 금액 : {Total} 원
                 </h2>
                     :
                     <div></div>}
