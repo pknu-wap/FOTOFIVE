@@ -9,11 +9,12 @@ function UserCardBlock(props) {
             return `http://localhost:5000/${image}`
         }
     }
-
+    console.log(props.products)
     const renderItems = () => (
+
         props.products && props.products.map(photo => (
 
-            <tr>
+            < tr >
                 <td>
                     <img src={renderCartImage(photo.images)} />
                 </td>
@@ -28,7 +29,7 @@ function UserCardBlock(props) {
                         Remove
                     </button>
                 </td>
-            </tr>
+            </tr >
         ))
     )
 

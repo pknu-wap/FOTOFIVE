@@ -23,13 +23,17 @@ const PhotoSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+    continents: {
+        type: Number,
+        default: 1
+    }
 }, { timestamps: true })
 
 PhotoSchema.index({
     title: 'text',
     detail: 'text'
-},{
-    weights:{
+}, {
+    weights: {
         title: 5,
         detail: 1
     }
