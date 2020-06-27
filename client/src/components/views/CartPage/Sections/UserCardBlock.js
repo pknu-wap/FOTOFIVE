@@ -17,9 +17,9 @@ function UserCardBlock(props) {
 
                     <img src={renderCartImage(photo.images)} />
                 </td>
-                <td>{photo.quantity} EA</td>
+                <td>{photo.images.length} 개</td>
                 <td>
-                    {photo.price}
+                    {photo.price} 원
                 </td>
                 <td>
                     <button onClick={() => props.removeItem(photo._id)}>
@@ -36,6 +36,7 @@ function UserCardBlock(props) {
                 <thead>
                     <tr>
                         <th>사진 이미지</th>
+                        <th>사진 갯수</th>
                         <th>가격</th>
                         <th>장바구니에서 삭제</th>
                     </tr>

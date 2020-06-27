@@ -7,7 +7,6 @@ import PhotoImage from './Sections/PhotoImage'
 import { addToCart } from '../../../_actions/user_action';
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
-
 function PhotoDetailPage(props) {
 
     const dispatch = useDispatch();

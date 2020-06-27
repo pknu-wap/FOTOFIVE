@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ImageGallery from 'react-image-gallery'
+import './PhotoImage.scss'
 
 function PhotoImage(props) {
 
@@ -22,7 +23,7 @@ function PhotoImage(props) {
 
 
     return (
-        <div>
+        <div className="PhotoImageContainer"> 
             <ImageGallery items={Images}/>
         </div>
     )
