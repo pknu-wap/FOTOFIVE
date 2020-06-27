@@ -52,22 +52,22 @@ export function addToCart(_id) {
     }
 }
 
-export function getCartItems(cartItems, userCart){
-    const request = Axios.get(`/api/photo/photos_by_id?id=${cartItems}&type=array`)
-        .then(response =>{
+export function getCartItems(cartItems, userCart) {
+    const request = Axios.get(`/api/photos/photo_by_id?id=${cartItems}&type=array`)
+        .then(response => {
 
             userCart.forEach(cartItem => {
                 response.data.forEach((photoDetail, index) => {
-                    if(cartItem.id === photoDetail.__id){
+                    if (cartItem.id === photoDetail.__id) {
                         response.data.photo[index].quantity = cartItems.quantity
                     }
                 })
             })
-            
+
 
             return response.data;
-               });
-        
+        });
+
     return {
         type: GET_CART_ITEMS,
         payload: request

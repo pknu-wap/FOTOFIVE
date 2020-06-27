@@ -2,9 +2,9 @@ import React from 'react'
 import './UserCardBlock.scss'
 
 function UserCardBlock(props) {
-
+    console.log(props)
     const renderCartImage = (images) => {
-        if(images.length > 0) {
+        if (images.length > 0) {
             let image = images[0]
             return `http://localhost:5000/${image}`
         }
@@ -15,10 +15,10 @@ function UserCardBlock(props) {
 
             <tr>
                 <td>
-                    <img src={renderCartImage(photo.images)}/>
+                    <img src={renderCartImage(photo.images)} />
                 </td>
                 <td>
-                    {photo.quantity} 개 
+                    {photo.quantity} 개
                 </td>
                 <td>
                     {photo.price}

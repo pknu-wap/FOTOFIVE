@@ -9,15 +9,15 @@ import UserCardBlock from '../CartPage/Sections/UserCardBlock'
 function CartPage(props) {
 
     const dispatch = useDispatch();
-   
+    //console.log(props.user);
 
     useEffect(() => {
 
         let cartItems = []
 
-        if(props.user.userData && props.user.userData.cart) {
-            if(props.user.userData.cart.length > 0){
-                props.user.userData.cart.forEath(item => {
+        if (props.user.userData && props.user.userData.cart) {
+            if (props.user.userData.cart.length > 0) {
+                props.user.userData.cart.forEach(item => {
                     cartItems.push(item.id)
                 })
 
@@ -26,12 +26,14 @@ function CartPage(props) {
         }
     }, [props.user.userData])
 
-
+    //products={props.user.cartDetail}
     return (
         <div>
             <Header />
             <h1>MY CART</h1>
-            <UserCardBlock products={props.user.cartDetail && props.user.cartDetail.photo}/>
+            <UserCardBlock
+                products={props.user.cartDetail}
+            />
             <Footer />
         </div>
     )
