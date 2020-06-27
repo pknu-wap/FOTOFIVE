@@ -10,10 +10,12 @@ function PhotoInfo(props) {
 
     const clickHandler = () => {
         dispatch(addToCart(props.detail._id))
+        alert("사진을 장바구니에 담았습니다.")
     }
 
     const addToCarthandler = () => {
         props.addToCart(props.detail._id)
+        alert("사진을 장바구니에 담았습니다.")
     }
 
 
@@ -33,5 +35,5 @@ function PhotoInfo(props) {
         </div>
     )
 }
-//
+
 export default PhotoInfo
