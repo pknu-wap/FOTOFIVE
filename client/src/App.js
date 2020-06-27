@@ -10,8 +10,9 @@ import LandingPage from './components/views/LandingPage/LandingPage'
 import LoginPage from './components/views/LoginPage/LoginPage'
 import RegisterPage from './components/views/RegisterPage/RegisterPage'
 import PhotoUploadPage from './components/views/PhotoUploadPage/PhotoUploadPage'
+import CartPage from './components/views/CartPage/CartPage'
 import Auth from './hoc/auth'
-// import PhotoDetailPage from './components/views/PhotoDetailPage/PhotoDetailPage';
+import PhotoDetailPage from './components/views/PhotoDetailPage/PhotoDetailPage';
 
 function App() {
   return (
@@ -28,7 +29,8 @@ function App() {
         <Route exact path="/login" component={Auth(LoginPage, false)} />
         <Route exact path="/register" component={Auth(RegisterPage, false)} />
         <Route exact path="/photo/upload" component={Auth(PhotoUploadPage, true)} />
-        {/* <Route exact path="/photo/:photoId" component={Auth(PhotoDetailPage, null)} /> */}
+        <Route exact path="/user/cart" component={Auth(CartPage, true)} />
+        <Route exact path="/photo/:photoId" component={Auth(PhotoDetailPage, null)} />
       </Switch>
   </Router>
   );

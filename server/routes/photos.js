@@ -108,7 +108,24 @@ router.post("/main", (req, res) => {
 });
 
 
+router.get('/photo_by_id', (req, res) => {
+    let type = req.query.type
+    let photoIds = req.query.id
 
+    if(type === "array") {
+        let ids = req.query.id.split(',')
+        photoIds =ids.map(item => {
+            return item
+        })
+    }
+
+    Photo.find({ _id: {$in: photoIds} })
+        .populate('writer')
+        .exec((err, photo) => {
+            if(err) return res.status(400).send(err)
+            return res.status(200).send(photo)
+        })
+})
 
 
 
