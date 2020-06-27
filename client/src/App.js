@@ -14,7 +14,6 @@ import Auth from './hoc/auth'
 import CartPage from './components/views/CartPage/CartPage';
 import PhotoDetailPage from './components/views/PhotoDetailPage/PhotoDetailPage';
 
-
 function App() {
   return (
     <Router>
@@ -25,7 +24,6 @@ function App() {
         you have multiple routes, but you want only one
         of them to render at a time
       */}
-
 
       <div>
         <Switch>
@@ -38,6 +36,7 @@ function App() {
 
         </Switch>
       </div>
+
 
 
     </Router>
