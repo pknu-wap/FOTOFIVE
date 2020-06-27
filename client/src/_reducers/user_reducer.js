@@ -1,5 +1,5 @@
 import {
-    LOGIN_USER, REGISTER_USER, AUTH_USER, CET_CART_ITEMS
+    LOGIN_USER, REGISTER_USER, AUTH_USER, ADD_TO_CART, GET_CART_ITEMS
 } from '../_actions/types';
 
 export default function (state = {}, action) {
@@ -16,10 +16,17 @@ export default function (state = {}, action) {
             return { ...state, userData: action.payload }
             break;
 
-        case CET_CART_ITEMS:
+        case GET_CART_ITEMS:
             return { ...state, cartDetail: action.payload }
             break;
 
+        case ADD_TO_CART:
+            return {
+                ...state, userData: {
+                    ...state.userData,
+                    cart: action.payload
+                }
+            }
 
         default:
             return state;

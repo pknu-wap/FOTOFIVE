@@ -24,15 +24,22 @@ function App() {
         you have multiple routes, but you want only one
         of them to render at a time
       */}
-      <Switch>
-        <Route exact path="/" component={Auth(LandingPage, null)} />
-        <Route exact path="/login" component={Auth(LoginPage, false)} />
-        <Route exact path="/register" component={Auth(RegisterPage, false)} />
-        <Route exact path="/photo/upload" component={Auth(PhotoUploadPage, true)} />
-        <Route exact path="/user/cart" component={Auth(CartPage, true)} />
-        <Route exact path="/photo/:photoId" component={Auth(PhotoDetailPage, null)} />
-      </Switch>
-  </Router>
+
+      <div>
+        <Switch>
+          <Route exact path="/" component={Auth(LandingPage, null)} />
+          <Route exact path="/login" component={Auth(LoginPage, false)} />
+          <Route exact path="/register" component={Auth(RegisterPage, false)} />
+          <Route exact path="/photo/upload" component={Auth(PhotoUploadPage, true)} />
+          <Route exact path="/user/cart" component={Auth(CartPage, true)} />
+          <Route exact path="/photo/:photoId" component={Auth(PhotoDetailPage, null)} />
+
+        </Switch>
+      </div>
+
+
+
+    </Router>
   );
 }
 

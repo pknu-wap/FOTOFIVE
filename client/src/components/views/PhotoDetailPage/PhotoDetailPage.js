@@ -1,29 +1,45 @@
-import React, { useEffect } from 'react'
+
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useDispatch } from "react-redux";
+import PhotoInfo from "./Sections/PhotoInfo"
+import { addToCart } from '../../../_actions/user_action';
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
 function PhotoDetailPage(props) {
 
-    const photoId = props.math.params.photoId
+    const dispatch = useDispatch();
+
+    const photoId = props.match.params.photoId;
+    const [photo, setPhoto] = useState([])
 
     useEffect(() => {
-
-        axios.get(`/api/photo/photos_by_id?id=${photoId}&types=single`)
+        axios.get(`/api/photos/getphoto?id=${photoId}&type=single`)
             .then(response => {
-                if(response.data.success){
-
-
-                }else {
-                    alert('상세 정보 가져오기를 실패했습니다.')
+                if (response.data.success) {
+                    setPhoto(response.data.photo[0])
+                }
+                else {
+                    alert("failed...")
                 }
             })
     }, [])
+
+    const addToCartHandler = (photoId) => {
+        dispatch(addToCart(photoId))
+    }
+
+
     return (
         <div>
             <Header />
+            <PhotoInfo
+                addToCart={addToCartHandler}
+                detail={photo} />
             <Footer />
         </div>
+
     )
 }
 
