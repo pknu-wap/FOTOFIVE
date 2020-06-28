@@ -1,6 +1,6 @@
 FOTOFIVE
 ========
-### 2020 web 5 project
+### 2020 WAP web 5 project
 
 #### 주제
 
