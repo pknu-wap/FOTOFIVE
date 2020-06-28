@@ -26,7 +26,7 @@ function App() {
         of them to render at a time
       */}
 
-      <div>
+      <div className="background">
         <Switch>
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />

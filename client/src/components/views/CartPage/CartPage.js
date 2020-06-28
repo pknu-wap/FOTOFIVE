@@ -87,10 +87,10 @@ function CartPage(props) {
 
             {ShowTotal ?
                 <div>
-                    <h2>Total Amount: ${Total}</h2>
+                    <h2 className="totalPrice">총 가격: ${Total}</h2>
                 </div>
                 : ShowSuccess ?
-                    <h1>결제에 성공하셨습니다!</h1>
+                    <h2 className="successPayment">결제에 성공하셨습니다!</h2>
                     :
                     <br />
                     

@@ -79,7 +79,7 @@ function PhotoUploadPage(props) {
                             <Form.Control as="textarea" type="text" className="detailText" onChange={detailChangeHandler} value={Detail} />
                         </div>
                     </div>
-                    <Form.Label className="label">가격(\)</Form.Label>
+                    <Form.Label className="label">가격($)</Form.Label>
                     <Form.Control type="number"
                         className="priceText"
                         onChange={priceChangeHandler}

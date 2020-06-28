@@ -42,7 +42,7 @@ function LandingPage() {
             </NavLink>
             <ListGroup className="list-group-flush">
                 <ListGroupItem className="photoTitle">{photo.title}</ListGroupItem>
-                <ListGroupItem className="photoPrice">{`${photo.price}원`}</ListGroupItem>
+                <ListGroupItem className="photoPrice">{`$${photo.price}`}</ListGroupItem>
             </ListGroup>
         </Card>
     })

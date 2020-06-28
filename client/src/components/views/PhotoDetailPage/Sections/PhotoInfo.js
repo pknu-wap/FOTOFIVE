@@ -25,7 +25,7 @@ function PhotoInfo(props) {
             <div className="photoInfo">
                 <p className="title">{props.detail.title}</p>
                 <p className="detail">상세정보 : {props.detail.detail}</p>
-                <p className="price">가격 : {props.detail.price} 원</p>
+                <p className="price">가격 : $ {props.detail.price} </p>
          
 
 
