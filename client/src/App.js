@@ -12,6 +12,7 @@ import RegisterPage from './components/views/RegisterPage/RegisterPage'
 import PhotoUploadPage from './components/views/PhotoUploadPage/PhotoUploadPage'
 import Auth from './hoc/auth'
 import CartPage from './components/views/CartPage/CartPage';
+import DetailProductPage from "./views/DetailProductPage/DetailProductPage"
 
 function App() {
   return (
@@ -29,7 +30,10 @@ function App() {
         <Route exact path="/login" component={Auth(LoginPage, false)} />
         <Route exact path="/register" component={Auth(RegisterPage, false)} />
         <Route exact path="/photo/upload" component={Auth(PhotoUploadPage, true)} />
+        <Route exact path="/photo/:photoId" component={Auth(DetailProductPage, null)} />
+
         <Route exact path="/user/cart" component={Auth(CartPage, true)} />
+    
 
       </Switch>
     </div>
