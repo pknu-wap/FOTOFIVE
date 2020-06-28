@@ -13,6 +13,7 @@ import PhotoUploadPage from './components/views/PhotoUploadPage/PhotoUploadPage'
 import CartPage from './components/views/CartPage/CartPage'
 import Auth from './hoc/auth'
 import PhotoDetailPage from './components/views/PhotoDetailPage/PhotoDetailPage';
+import HistoryPage from './components/views/HistoryPage/HistoryPage';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
         of them to render at a time
       */}
 
-      <div>
+      <div className="background">
         <Switch>
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
@@ -33,6 +34,8 @@ function App() {
           <Route exact path="/photo/upload" component={Auth(PhotoUploadPage, true)} />
           <Route exact path="/user/cart" component={Auth(CartPage, true)} />
           <Route exact path="/photo/:photoId" component={Auth(PhotoDetailPage, null)} />
+          <Route exact path="/history" component={Auth(HistoryPage, true)} />
+
 
         </Switch>
       </div>

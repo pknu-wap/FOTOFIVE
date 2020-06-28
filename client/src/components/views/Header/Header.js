@@ -21,7 +21,7 @@ function Header(props, user) {
                 <label for="menuBtn" className="menuBtn"><img src={menuicon} /></label>
                 <ul className="list">
                     <li><NavLink exact to="/photo/upload" className="li">사진 업로드</NavLink></li>
-                    <li><NavLink exact to="#" className="li">충전</NavLink></li>
+                    <li><NavLink exact to="/history" className="li">결제 내역</NavLink></li>
                 </ul>
             </div>
 

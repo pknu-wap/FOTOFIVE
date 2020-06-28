@@ -5,7 +5,8 @@ import {
     AUTH_USER,
     ADD_TO_CART,
     GET_CART_ITEMS,
-    REMOVE_CART_ITEM
+    REMOVE_CART_ITEM,
+    ON_SUCCESS_BUY
 }
     from './types';
 
@@ -103,5 +104,17 @@ export function removeCartItem(photoId) {
         type: REMOVE_CART_ITEM,
         payload: request
 
+    }
+}
+
+
+export function onSuccessBuy(data) {
+
+    const request = Axios.post(`/api/users/successBuy`, data)
+        .then(response => response.data);
+
+    return {
+        type: ON_SUCCESS_BUY,
+        payload: request
     }
 }

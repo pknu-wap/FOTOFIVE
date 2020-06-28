@@ -19,7 +19,7 @@ function UserCardBlock(props) {
                 </td>
                 <td>{photo.images.length} 개</td>
                 <td>
-                    {photo.price} 원
+                    $ {photo.price} 
                 </td>
                 <td>
                     <button onClick={() => props.removeItem(photo._id)}>
