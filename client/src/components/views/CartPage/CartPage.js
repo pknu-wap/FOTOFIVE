@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { getCartItems, removeCartItem } from '../../../_actions/user_action'
+import { getCartItems, removeCartItem, onSuccessBuy } from '../../../_actions/user_action'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import UserCardBlock from '../CartPage/Sections/UserCardBlock'
 import './CartPage.scss'
+import  Paypal from '../../utils/Paypal'
 
 function CartPage(props) {
 
@@ -12,6 +13,7 @@ function CartPage(props) {
 
     const [Total, setTotal] = useState(0)
     const [ShowTotal, setShowTotal] = useState(false)
+    const [ShowSuccess, setShowSuccess] = useState(false)
 
 
     useEffect(() => {
@@ -58,6 +60,19 @@ function CartPage(props) {
             })
 
     }
+
+    const transactionSuccess = (data) => {
+        dispatch(onSuccessBuy({
+            paymentData: data,
+            cartDetail: props.user.cartDetail
+        }))
+            .then(response => {
+                if(response.payload.success) {
+                    setShowTotal(false)
+                    setShowSuccess(true)
+                }
+            })
+    }
     return (
         <div className="CartPage">
             <Header />
@@ -66,15 +81,31 @@ function CartPage(props) {
                 photos={props.user.cartDetail} removeItem={removeFromCart}
             />
 
+
+
             <div>
 
-                {ShowTotal ? <h2 className="totalPrice">
-                    총 금액 : {Total} 원
-                </h2>
+            {ShowTotal ?
+                <div>
+                    <h2>Total Amount: ${Total}</h2>
+                </div>
+                : ShowSuccess ?
+                    <h1>결제에 성공하셨습니다!</h1>
                     :
-                    <div></div>}
+                    <br />
+                    
+            }
+            
+            {ShowTotal && 
+             <Paypal 
+             total={Total}
+             onSuccess={transactionSuccess}
+             />
+            }
 
+            
             </div>
+            
             <Footer />
         </div>
     )
