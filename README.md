@@ -21,3 +21,5 @@ FOTOFIVE
 3. cd client 후 npm install
 4. root 폴더에서 npm run backend
 5. client 폴더에서 npm run start
+  
+(본 웹사이트는 Chrome 기준으로 만들어졌습니다.)
