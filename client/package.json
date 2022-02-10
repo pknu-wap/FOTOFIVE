@@ -10,7 +10,7 @@
     "bootstrap": "4.0.0-alpha.6",
     "http-proxy-middleware": "1.0.4",
     "mdbreact": "4.27.0",
-    "node-sass": "4.14.1",
+    "node-sass": "7.0.0",
     "react": "16.13.1",
     "react-addons-css-transition-group": "15.6.2",
     "react-addons-transition-group": "15.6.2",
